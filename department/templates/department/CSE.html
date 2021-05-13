@@ -56,8 +56,12 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
+
+        
         <div class="u-container-style u-group u-palette-1-base u-group-1">
-          <div class="u-container-layout u-container-layout-1"></div>
+          <div class="u-container-layout u-container-layout-1">
+           
+          </div>
         </div>
       </div></header>
     <section class="u-clearfix u-section-1" id="sec-8a17">
@@ -66,7 +70,13 @@
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-1">
-                <div class="u-border-1 u-border-grey-75 u-container-layout u-container-layout-1"></div>
+                <div class="u-border-1 u-border-grey-75 u-container-layout u-container-layout-1">
+                  {% autoescape off %}
+                  {{ plot_div }}
+                  {% endautoescape %}
+
+
+                </div>
               </div>
               <div class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2"></div>
@@ -95,6 +105,9 @@
                 <h3 class="u-text u-text-1">Topper 1</h3>
                 <p class="u-text u-text-2">Department Name</p>
               </div>
+              {% autoescape off %}
+        {{ plot_div }}
+        {% endautoescape %}
             </div>
             <div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-2" data-image-width="2000" data-image-height="1333">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">

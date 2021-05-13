@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.expressions import Value
 
 # Create your models here.
-
+                            
 class Departments(models.Model):
     department_code=models.IntegerField()
     department_name=models.CharField(max_length=64)
@@ -20,6 +20,37 @@ class Topper(models.Model):
     def __str__(self):
         return f"First Rank {self.rank1  } || Second rank {self.rank2  }|| Third Rank  {self.rank3 }" 
 
+class College_notification(models.Model):
+    dated_on=models.DateTimeField()
+    summary=models.CharField(max_length=100)
+    description=models.CharField(max_length=500)
+    attachements=models.FileField(upload_to='uploades/')
+    def __str__(self):
+        return f"Date {self.dated_on  } || Summary {self.summary}" 
+
+class Cse_notification(models.Model):
+    dated_on=models.DateTimeField()
+    summary=models.CharField(max_length=100)
+    description=models.CharField(max_length=500)
+    attachements=models.FileField('uploades/cse/')
+    def __str__(self):
+        return f"Date {self.dated_on  } || Summary {self.summary}" 
+
+class Eee_notification(models.Model):
+    dated_on=models.DateTimeField()
+    summary=models.CharField(max_length=100)
+    description=models.CharField(max_length=500)
+    attachements=models.FileField('uploades/eee/')
+    def __str__(self):
+        return f"Date {self.dated_on  } || Summary {self.summary}" 
+
+class Auto_notification(models.Model):
+    dated_on=models.DateTimeField()
+    summary=models.CharField(max_length=100)
+    description=models.CharField(max_length=500)
+    attachements=models.FileField('uploades/auto/')
+    def __str__(self):
+        return f"Date {self.dated_on  } || Summary {self.summary}" 
 class CseTopper(models.Model):
     rank1=models.CharField(max_length=64)
     rank2=models.CharField(max_length=64)
@@ -65,7 +96,9 @@ class Department_Details_onlyA(models.Model):
     total_Auto_staffs=models.IntegerField()
     #Ovellall college Student details
     #total_no_students=models.Sum(total_Auto_Students,total_Cse_Students,total_Eee_Students)
-    #total_no_staffs=models.Sum(total_Eee_staffs,total_Auto_staffs,total_Cse_staffs)    
+    #total_no_staffs=models.Sum(total_Eee_staffs,total_Auto_staffs,total_Cse_staffs)  
+    def __str__(self):
+        return f"First Rank {self.secondYearCse } || Second rank {self.thirdYearCse }|| Third Rank  {self.finalYearCse  }"   
 
 
 

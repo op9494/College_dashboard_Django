@@ -5,6 +5,7 @@
             <meta charset="utf-8">
             <meta name="keywords" content="">
             <meta name="description" content="">
+          
             <meta name="page_type" content="np-template-header-footer-from-plugin">
             <title>Home</title>
             <link rel="stylesheet" href="{% static 'css/nicepage.css'%}" media="screen">
@@ -29,7 +30,7 @@
         </head>
         <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-dba9"><div class="u-clearfix u-sheet u-sheet-1">
               <img src="{% static 'images/default-logo.png'%}" class="u-logo-image u-logo-image-1">
-            </a>
+            </a> <h3>{{cg_name}}</h3>
             <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
               <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
                 <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-color u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="text-shadow: -2px 0 0 rgba(0,0,0,0);">
@@ -56,8 +57,19 @@
                 <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
               </div>
             </nav>
+            <h1>NOTIFICATION</h1>
             <div class="u-container-style u-group u-palette-1-base u-group-1">
-              <div class="u-container-layout u-container-layout-1"></div>
+              <div class="u-container-layout u-container-layout-1">
+                <marquee  direction="up" height="100%">
+                <ul style="color:blanchedalmond;">
+                {%for cg_notification in cg_notification%}
+                    <li ><b><a style="color:black;" href="http://127.0.0.1:8000/download/{{cg_notification.attachements}}"> <p>{{cg_notification.summary}} </p> </a></b> </li>
+                {%endfor%}
+                </ul>
+                </marquee>
+                </script>
+
+              </div>
             </div>
           </div></header>
         <section class="u-clearfix u-section-1" id="sec-8a17">
@@ -65,14 +77,20 @@
             <div class="u-clearfix u-expanded-width u-gutter-42 u-layout-wrap u-layout-wrap-1">
               <div class="u-layout">
                 <div class="u-layout-row">
-                  <div class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-1">
-                    <div class="u-border-1 u-border-grey-75 u-container-layout u-container-layout-1"></div>
+                  <div style="border-style:dashed;border-color:black;border-width: 2px;" class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-1">
+                    <div class="u-border-1 u-border-grey-75 u-container-layout u-container-layout-1">
+                      <h2 style="text-align: center;color:brown;">Total Students in CSE</h2>
+                      <h1 style="text-align: center;color:blue;font-weight: 1000;">{{csetotal}}</h1></div>
                   </div>
-                  <div class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-2">
-                    <div class="u-container-layout u-container-layout-2"></div>
+                  <div style="border-style: dashed;border-color:black;border-width: 2px;" class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-2">
+                    <div class="u-container-layout u-container-layout-2">
+                      <h2 style="text-align: center;color:brown;">Total Students in Auto</h2>
+                      <h1 style="text-align: center;color:blue;font-weight: 1000;">{{autototal}}</h1></div>
                   </div>
-                  <div class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-3">
-                    <div class="u-container-layout u-container-layout-3"></div>
+                  <div style="border-style: dashed;border-color:black;border-width: 2px;" class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-3">
+                    <div class="u-container-layout u-container-layout-3">
+                      <h2 style="text-align: center;color:brown;">Total Students in EEE</h2>
+                      <h1 style="text-align: center;color:blue;font-weight: 1000;">{{eeetotal}}</h1></div>
                   </div>
                 </div>
               </div>
@@ -175,5 +193,6 @@
               </div>
             </nav>
           </div></footer>
+          
       </body>
     </html>
