@@ -18,16 +18,24 @@ sqlparse         0.4.1
 virtualenv       20.4.3
 ```
 ### To install
-> $ pip install
-> $ pip update
-
+```
+$ pip install
+```
+```
+ $ pip update
+```
 3.To create the model in django
-> python manage.py makemigrations
-> python manage.py migrate
+```
+python manage.py makemigrations
+```
 
+``` 
+python manage.py migrate
+```
 4.How to run the application. from the current directory run the code from bash
-> python manage.py runserver
-
+```
+python manage.py runserver
+```
 To visit [Admin and staff login](http://127.0.0.1:8000/admin)
 To look the [dashboard](http://127.0.0.1:8000/) 
 
