@@ -36,8 +36,9 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-To visit [Admin and staff login](http://127.0.0.1:8000/admin)
-To look the [dashboard](http://127.0.0.1:8000/) 
+## Link to Visit
+1.To visit [Admin and staff login](http://127.0.0.1:8000/admin)
+2.To look the [dashboard](http://127.0.0.1:8000/) 
 
 ## Models 
 - Admin
