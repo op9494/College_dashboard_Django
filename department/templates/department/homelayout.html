@@ -1,0 +1,141 @@
+{% load static %} 
+ <!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+        {{ page_title|default:"Waiting For Response" }}
+        {% endblock title %}
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/CSE.css'%}" media="screen">
+    <style>
+      .ihead{
+          text-align: center;
+          margin: 1em 0 0.5em 0;
+          color: #343434;
+          font-weight: normal;
+          font-family: 'Ultra', sans-serif;   
+          font-size: 36px;
+          line-height: 42px;
+          text-transform: uppercase;
+          text-shadow: 0 2px white, 0 3px #777;
+
+      }
+      h5{
+        color: blue;
+        font-weight: bold;
+        font-size:x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div class="header">
+            <a href="#default" class="logo">
+                {% block depname %}
+                {{ page_heading }}
+                {% endblock depname %}
+
+
+            </a>
+            <div class="header-right">
+                {% block nav-home %}<a href="{% url 'department' %}">Home</a>{% endblock %}
+                {% block nav-cse %}<a href="{% url 'dep_cse' %}">CSE</a>{% endblock %}
+                {% block nav-eee %}<a href="{% url 'dep_eee' %}">EEE</a>{% endblock %}
+                {% block nav-auto %}<a href="{% url 'dep_auto' %}">AUTO</a>{% endblock %}
+            </div>
+        </div>
+       
+  
+    </header>
+    <div class="Dep_notificationpanel">
+      <div class="ihead">
+        NOTIFICATION
+       </div>
+        <h4>  {% block notification_content %}
+
+            {% endblock notification_content %}</h4>
+       
+    </div>
+    <br/>
+    
+    <div class="row">
+      <div class="ihead">
+        HALL OF FAME
+       </div>        <div class="column">
+          <div class="card">
+            <h1>{% block topper1 %}{% endblock topper1 %}</h1>
+            <h4>RANK 1</h4>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <h1>{% block topper2 %}{% endblock topper2 %}</h1>
+            <h4>RANK 2</h4>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h1>{% block topper3 %}{% endblock topper3 %}</h1>
+            <h4>RANK 3</h4>
+          </div>
+        </div>
+        </div>
+       
+      </div>
+    <br/>
+      <div class="Dep_notificationpanel" >
+        <br/>
+        <div class="ihead">
+          Graph of daily attedence of DEPARTMENT
+         </div>
+      </div>
+      <div class="row1">
+        <div class="column1">
+      {% block virtual1%}
+
+      {% endblock virtual1%}
+      </div>
+      <div class="column1">
+        {% block virtual2%}{% endblock virtual2%}
+
+      </div>
+        </div>
+
+      <div class="row">
+        <div class="ihead">
+          DEPARTMENT DETAILS 
+         </div>
+        <div class="column">
+          <div class="card">
+            <h3>AUTO</h3>
+            
+            <h1>{% block depy2 %}{% endblock depy2 %}</h1>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <h3>CSE </h3>
+            <h1>{% block depy3 %}{% endblock depy3 %}</h1>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h3>EEE </h3>
+            <h1>{% block depy4 %}{% endblock depy4 %}</h1>
+          </div>
+        </div>
+        </div>
+       
+      </div>
+  </body>
+</html>

@@ -24,7 +24,7 @@ class College_notification(models.Model):
     dated_on=models.DateTimeField()
     summary=models.CharField(max_length=100)
     description=models.CharField(max_length=500)
-    attachements=models.FileField(upload_to='uploades/')
+    attachements=models.FileField(upload_to='uploades/college/')
     def __str__(self):
         return f"Date {self.dated_on  } || Summary {self.summary}" 
 
@@ -32,15 +32,16 @@ class Cse_notification(models.Model):
     dated_on=models.DateTimeField()
     summary=models.CharField(max_length=100)
     description=models.CharField(max_length=500)
-    attachements=models.FileField('uploades/cse/')
+    attachements=models.FileField(upload_to='uploades/cse/')
     def __str__(self):
         return f"Date {self.dated_on  } || Summary {self.summary}" 
+    
 
 class Eee_notification(models.Model):
     dated_on=models.DateTimeField()
     summary=models.CharField(max_length=100)
     description=models.CharField(max_length=500)
-    attachements=models.FileField('uploades/eee/')
+    attachements=models.FileField(upload_to='uploades/eee/')
     def __str__(self):
         return f"Date {self.dated_on  } || Summary {self.summary}" 
 
@@ -48,7 +49,7 @@ class Auto_notification(models.Model):
     dated_on=models.DateTimeField()
     summary=models.CharField(max_length=100)
     description=models.CharField(max_length=500)
-    attachements=models.FileField('uploades/auto/')
+    attachements=models.FileField(upload_to='uploades/auto/')
     def __str__(self):
         return f"Date {self.dated_on  } || Summary {self.summary}" 
 class CseTopper(models.Model):
@@ -104,29 +105,35 @@ class Department_Details_onlyA(models.Model):
 
       
 class Cse_Daily_Strength(models.Model):
-    date_of_attendence=models.DateField()
+    attendence_date=models.DateTimeField()
     second_year_present=models.IntegerField()
     third_year_present=models.IntegerField()
     final_year_present=models.IntegerField()
 #    tota_no_students_present=second_year_present+third_year_present+final_year_present
     staffs_present=models.IntegerField()
+    def __str__(self):
+        return f"Date {self.attendence_date} || Staffspresent {self.staffs_present  }|| Totalstudents {self.second_year_present+self.third_year_present+self.final_year_present}" 
+    
 class Eee_Daily_Strength(models.Model):
-    date_of_attendence=models.DateField()
+    attendence_date=models.DateTimeField()
     second_year_present=models.IntegerField()
     third_year_present=models.IntegerField()
     final_year_present=models.IntegerField()
 #    tota_no_students_present=second_year_present+third_year_present+final_year_present
     staffs_present=models.IntegerField()
+    def __str__(self):
+        return f"Date {self.attendence_date} || Staffspresent {self.staffs_present  }|| Totalstudents {self.second_year_present+self.third_year_present+self.final_year_present}" 
+    
 
 class Auto_Daily_Strength(models.Model):
-    date_of_attendence=models.DateField()
+    attendence_date=models.DateTimeField()
     second_year_present=models.IntegerField()
     third_year_present=models.IntegerField()
     final_year_present=models.IntegerField()
     staffs_present=models.IntegerField()
     #    tota_no_students_present=second_year_present+third_year_present+final_year_present
     def __str__(self):
-        return f"Date {self.date_of_attendence  } || Staffspresent {self.staffs_present  }|| Totalstudents {self.second_year_present+self.third_year_present+self.final_year_present}" 
+        return f"Date {self.attendence_date} || Staffspresent {self.staffs_present  }|| Totalstudents {self.second_year_present+self.third_year_present+self.final_year_present}" 
     
     
 

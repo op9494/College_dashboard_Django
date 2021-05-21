@@ -1,198 +1,73 @@
-{% load static %}  
-<html style="font-size: 16px;">
-    <head>
-        <Title>Department Dashboard <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta charset="utf-8">
-            <meta name="keywords" content="">
-            <meta name="description" content="">
-          
-            <meta name="page_type" content="np-template-header-footer-from-plugin">
-            <title>Home</title>
-            <link rel="stylesheet" href="{% static 'css/nicepage.css'%}" media="screen">
-            <link rel="stylesheet" href="{% static 'css/Home.css'%}" media="screen">
-            <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js'%}" defer=""></script>
-            <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js'%}" defer=""></script>
-            <meta name="generator" content="Nicepage 3.14.0, nicepage.com">
-            <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-            <script type="application/ld+json">{
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "name": "",
-                "url": "index.html",
-                "logo": "{% static 'images/default-logo.png'%}"
-        }</script>
-            <meta property="og:title" content="Home">
-            <meta property="og:type" content="website">
-            <meta name="theme-color" content="#478ac9">
-            <link rel="canonical" href="index.html">
-            <meta property="og:url" content="index.html">
-            <link href="{% static 'css/style.css'%}" rel="stylesheet">     
-        </head>
-        <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-dba9"><div class="u-clearfix u-sheet u-sheet-1">
-              <img src="{% static 'images/default-logo.png'%}" class="u-logo-image u-logo-image-1">
-            </a> <h3>{{cg_name}}</h3>
-            <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-              <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
-                <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-color u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="text-shadow: -2px 0 0 rgba(0,0,0,0);">
-                  <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-    </symbol>
-    </defs></svg>
-                </a>
-              </div>
-              <div class="u-custom-menu u-nav-container">
-                <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-grey-90" href="Home.html" style="padding: 10px 0px; text-shadow: -2px -2px 8px rgba(128,128,128,1);">Home</a>
-    </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-grey-90" href="CSE.html" style="padding: 10px 0px; text-shadow: -2px -2px 8px rgba(128,128,128,1);">CSE</a>
-    </li></ul>
-              </div>
-              <div class="u-custom-menu u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                  <div class="u-sidenav-overflow">
-                    <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 0px; text-shadow: -2px -2px 8px rgba(128,128,128,1);">Home</a>
-    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="CSE.html" style="padding: 10px 0px; text-shadow: -2px -2px 8px rgba(128,128,128,1);">CSE</a>
-    </li></ul>
-                  </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-              </div>
-            </nav>
-            <h1>NOTIFICATION</h1>
-            <div class="u-container-style u-group u-palette-1-base u-group-1">
-              <div class="u-container-layout u-container-layout-1">
-                <marquee  direction="up" height="100%">
-                <ul style="color:blanchedalmond;">
-                {%for cg_notification in cg_notification%}
-                    <li ><b><a style="color:black;" href="http://127.0.0.1:8000/download/{{cg_notification.attachements}}"> <p>{{cg_notification.summary}} </p> </a></b> </li>
-                {%endfor%}
-                </ul>
-                </marquee>
-                </script>
 
-              </div>
-            </div>
-          </div></header>
-        <section class="u-clearfix u-section-1" id="sec-8a17">
-          <div class="u-clearfix u-sheet u-sheet-1">
-            <div class="u-clearfix u-expanded-width u-gutter-42 u-layout-wrap u-layout-wrap-1">
-              <div class="u-layout">
-                <div class="u-layout-row">
-                  <div style="border-style:dashed;border-color:black;border-width: 2px;" class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-1">
-                    <div class="u-border-1 u-border-grey-75 u-container-layout u-container-layout-1">
-                      <h2 style="text-align: center;color:brown;">Total Students in CSE</h2>
-                      <h1 style="text-align: center;color:blue;font-weight: 1000;">{{csetotal}}</h1></div>
-                  </div>
-                  <div style="border-style: dashed;border-color:black;border-width: 2px;" class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-2">
-                    <div class="u-container-layout u-container-layout-2">
-                      <h2 style="text-align: center;color:brown;">Total Students in Auto</h2>
-                      <h1 style="text-align: center;color:blue;font-weight: 1000;">{{autototal}}</h1></div>
-                  </div>
-                  <div style="border-style: dashed;border-color:black;border-width: 2px;" class="u-container-style u-grey-25 u-layout-cell u-size-20 u-layout-cell-3">
-                    <div class="u-container-layout u-container-layout-3">
-                      <h2 style="text-align: center;color:brown;">Total Students in EEE</h2>
-                      <h1 style="text-align: center;color:blue;font-weight: 1000;">{{eeetotal}}</h1></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="u-clearfix u-section-2" id="sec-ec9c">
-          <div class="u-clearfix u-sheet u-sheet-1">
-            <div class="u-container-style u-group u-palette-1-base u-group-1">
-              <div class="u-container-layout u-container-layout-1"></div>
-            </div>
-          </div>
-        </section>
-        <section class="u-clearfix u-section-3" id="sec-82f6">
-          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-            <div class="u-list u-list-1">
-              <div class="u-repeater u-repeater-1">
-                <div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-1" data-image-width="2000" data-image-height="1333">
-                  <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                    <h3 class="u-text u-text-1">Topper 1</h3>
-                    <p class="u-text u-text-2">Department Name</p>
-                  </div>
-                </div>
-                <div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-2" data-image-width="2000" data-image-height="1333">
-                  <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
-                    <h3 class="u-text u-text-3">Topper 2</h3>
-                    <p class="u-text u-text-4">Department Name</p>
-                  </div>
-                </div>
-                <div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-3" data-image-width="2000" data-image-height="1333">
-                  <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                    <h3 class="u-text u-text-5">Topper 2</h3>
-                    <p class="u-text u-text-6">Department Name</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="u-clearfix u-section-4" id="sec-26f8">
-          <div class="u-clearfix u-sheet u-sheet-1">
-            <div class="u-clearfix u-gutter-12 u-layout-wrap u-layout-wrap-1">
-              <div class="u-gutter-0 u-layout">
-                <div class="u-layout-col">
-                  <div class="u-size-30">
-                    <div class="u-layout-row">
-                      <div class="u-container-style u-grey-25 u-layout-cell u-size-30 u-layout-cell-1">
-                        <div class="u-container-layout u-container-layout-1"></div>
-                      </div>
-                      <div class="u-container-style u-grey-25 u-layout-cell u-size-30 u-layout-cell-2">
-                        <div class="u-container-layout u-container-layout-2"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="u-size-30">
-                    <div class="u-layout-row">
-                      <div class="u-container-style u-grey-25 u-layout-cell u-size-30 u-layout-cell-3">
-                        <div class="u-container-layout u-container-layout-3"></div>
-                      </div>
-                      <div class="u-container-style u-grey-25 u-layout-cell u-size-30 u-layout-cell-4">
-                        <div class="u-container-layout u-container-layout-4"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        
-        <footer class="u-clearfix u-footer u-grey-80" id="sec-c085"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-            <a href="https://nicepage.com" class="u-image u-logo u-image-1">
-                <img src="{% static 'images/default-logo.png'%}" class="u-logo-image u-logo-image-1">
-            </a>
-            <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-              <div class="menu-collapse">
-                <a class="u-button-style u-nav-link" href="#">
-                  <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-    </symbol>
-    </defs></svg>
-                </a>
-              </div>
-              <div class="u-custom-menu u-nav-container">
-                <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="CSE.html">CSE</a>
-    </li></ul>
-              </div>
-              <div class="u-custom-menu u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                  <div class="u-sidenav-overflow">
-                    <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="CSE.html">CSE</a>
-    </li></ul>
-                  </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-              </div>
-            </nav>
-          </div></footer>
-          
-      </body>
-    </html>
+{% extends './homelayout.html' %} 
+{% load static %} 
+
+{% block title %}
+{{ tittle }}
+{% endblock title %}
+{% block nav-home %}<a class="active" href="{% url 'department' %}">HOME</a>{% endblock %}
+{% block depname %}
+{{ tittle }}
+{% endblock depname %}
+{% block notification_content %}
+<marquee  direction="up" height="100%">
+  <ul style="color:blanchedalmond;">
+  {%for list in notification_list%}
+      <li ><b><a href="http://127.0.0.1:8000/noti/{{list.attachements}}"> <p>{{list.summary}} </p> </a></b> </li>
+  {%endfor%}
+  
+  </ul>
+  </marquee>
+{% endblock notification_content %}
+{% block topper1 %}
+{%for list in csetoppers%}
+<b><p>{{list.rank1}} </p> </b>
+{%endfor%}
+{% endblock topper1 %}
+{% block topper2 %}
+{%for list in csetoppers%}
+<b><p>{{list.rank2}} </p> </b>
+{%endfor%}
+{% endblock topper2 %}
+{% block topper3 %}
+{%for list in csetoppers%}
+<b><p>{{list.rank3}} </p> </b>
+{%endfor%}
+
+{% endblock topper3 %}
+
+{% block virtual1%}
+
+
+<div style="width: 50%;margin: 20px; background-color: #f1f1f1;" >
+  <canvas id="pie-chart"></canvas>
+  <h3 style="text-align: center;">Department Strength</h3>
+</div>
+  <script>
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{data1|safe }},
+          backgroundColor: ['red', 'green', 'blue'],
+        }],
+        labels: {{ labels1|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+    
+
+  </script>
+{% endblock virtual1%}
+
+{% block depy2 %}{{second_s}}{% endblock depy2 %}
+{% block depy3 %}{{thirt_s}}{% endblock depy3 %}
+{% block depy4 %}{{final_s}}{% endblock depy4 %}
+

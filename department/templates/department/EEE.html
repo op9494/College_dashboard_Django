@@ -5,7 +5,9 @@
 {% block title %}
 {{ tittle }}
 {% endblock title %}
-{% block nav-cse %}<a class="active" href="{% url 'dep_cse' %}">CSE</a>{% endblock %}
+{% block nav-eee %}
+<a class="active" href="{% url 'dep_eee' %}">EEE</a>
+{% endblock nav-eee %}
 {% block depname %}
 {{ tittle }}
 {% endblock depname %}
@@ -20,28 +22,26 @@
   </marquee>
 {% endblock notification_content %}
 {% block topper1 %}
-{%for list in csetoppers%}
+{%for list in eeetoppers%}
 <b><p>{{list.rank1}} </p> </b>
 {%endfor%}
 {% endblock topper1 %}
 {% block topper2 %}
-{%for list in csetoppers%}
+{%for list in eeetoppers%}
 <b><p>{{list.rank2}} </p> </b>
 {%endfor%}
 {% endblock topper2 %}
 {% block topper3 %}
-{%for list in csetoppers%}
+{%for list in eeetoppers%}
 <b><p>{{list.rank3}} </p> </b>
 {%endfor%}
 
 {% endblock topper3 %}
 
 {% block virtual1%}
-<div style="width:50%; margin: 40px;" >
 {% autoescape off %}
 {{ plot_div }}
 {% endautoescape %}
-</div>
 {% endblock virtual1%}
 {% block depy2 %}{{second_s}}{% endblock depy2 %}
 {% block depy3 %}{{thirt_s}}{% endblock depy3 %}
