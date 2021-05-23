@@ -99,6 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+ALLOWED_HOSTS = ['collegedashboard.herokuapp.com']
 
 
 # Internationalization
@@ -127,7 +128,6 @@ STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #  Add configuration for static files storage using whitenoise
-ALLOWED_HOSTS = ['collegedashboard.herokuapp.com','127.0.0.1']
 
 
 import dj_database_url 
