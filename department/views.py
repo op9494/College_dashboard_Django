@@ -38,6 +38,16 @@ def department(request):  #College Dashboard View
 def get_array(Table, column):
     rows = Table.objects.values(column)
     return [row[column] for row in rows]
+
+def get_data_plot(department_strength):
+    final_strength=get_array(department_strength, 'final_year_present')
+    second_strength=get_array(department_strength, 'second_year_present')
+    third_strength=get_array(department_strength, 'third_year_present')
+    total=[]
+    for i in range(0,len(final_strength)):
+        total_strn=final_strength[i]+second_strength[i]+third_strength[i]
+        total.append(total_strn)
+    return total
     
 def depcse(request):
     
@@ -45,17 +55,12 @@ def depcse(request):
     date=get_array(Cse_Daily_Strength,'attendence_date')
     da_snip=[]
     rows=Cse_Daily_Strength.objects.values('attendence_date')
-    
+    total=get_data_plot(Cse_Daily_Strength)
     for i in range(0,len(date)):
         s_date=date[i].date().day
         da_snip.append(s_date)
-    final_strength=get_array(Cse_Daily_Strength, 'final_year_present')
-    second_strength=get_array(Cse_Daily_Strength, 'second_year_present')
-    third_strength=get_array(Cse_Daily_Strength, 'third_year_present')
-    total=[]
-    for i in range(0,len(final_strength)):
-        total_strn=final_strength[i]+second_strength[i]+third_strength[i]
-        total.append(total_strn)
+    
+    
     
     print(f"date={da_snip}\n total={total} ")
     x_data = da_snip
