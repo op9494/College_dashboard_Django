@@ -2,14 +2,16 @@ from django.shortcuts import render
 from .models import Departments
 from plotly.offline import plot
 from plotly.graph_objs import Scatter
-from .models import Departments,Topper,Eee_notification,Auto_notification,AutoTopper,CseTopper,College_notification,Cse_notification,EeeTopper,Department_Details_onlyA,Cse_Daily_Strength,Eee_Daily_Strength,Auto_Daily_Strength
+from .models import Departments,Topper,College_Details,Eee_notification,Auto_notification,AutoTopper,CseTopper,College_notification,Cse_notification,EeeTopper,Department_Details_onlyA,Cse_Daily_Strength,Eee_Daily_Strength,Auto_Daily_Strength
 import mimetypes
 import os
 from django.http import HttpResponse
 
 # Create your views here.
-def department(request):  #College Dashboard View 
-    CollegeName="kumaraguru College Of Engineering"
+def department(request):  #College Dashboard View
+    College=College_Details.objects.all()
+    College_name=get_array(College_Details,'college_name')
+    print(f"hi{College_name[0]}") 
     department_det=Department_Details_onlyA.objects.all()
     csetotal=department_det[0].finalYearCse+department_det[0].thirdYearCse+department_det[0].secondYearCse
     autototal=department_det[0].finalYearAuto+department_det[0].thirdYearAuto+department_det[0].secondYearAuto
@@ -20,7 +22,7 @@ def department(request):  #College Dashboard View
     barlabels = ["CSE","EEE","AUTO"]
     bardata = [csetotal,autototal,eeetotal]
     return render(request,"department/home.html",{
-        "tittle":CollegeName,
+        "tittle":College_name[0],
         "csetoppers":Topper.objects.all(),
         "departments":Departments.objects.all(),
         "notification_list":College_notification.objects.all(),        
@@ -40,7 +42,7 @@ def get_array(Table, column):
     return [row[column] for row in rows]
     
 def depcse(request):
-    
+   
     attendence_det=Cse_Daily_Strength.objects.all()
     date=get_array(Cse_Daily_Strength,'attendence_date')
     da_snip=[]

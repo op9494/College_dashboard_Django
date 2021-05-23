@@ -52,6 +52,14 @@ class Auto_notification(models.Model):
     attachements=models.FileField(upload_to='uploades/auto/')
     def __str__(self):
         return f"Date {self.dated_on  } || Summary {self.summary}" 
+
+class College_Details(models.Model):
+    college_name=models.CharField(max_length=600)
+    college_quote=models.CharField(max_length=800)
+    principal_name=models.CharField( max_length=150)
+    def __str__(self):
+        return f"college name {self.college_name  } || Principal {self.principal_name}" 
+
 class CseTopper(models.Model):
     rank1=models.CharField(max_length=64)
     rank2=models.CharField(max_length=64)
