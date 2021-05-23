@@ -24,9 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o=%op5helejyy16vr-b@_&$s&i(d5w5!df+n3ull%^ilpqor9q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["collegedashboard.herokuapp.com"]
+DEBUG = False
 
 
 # Application definition
@@ -129,7 +127,9 @@ STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #  Add configuration for static files storage using whitenoise
-ALLOWED_HOSTS = ['collegedashboard.herokuapp.com']
+ALLOWED_HOSTS = ['collegedashboard.herokuapp.com','127.0.0.1']
+
+
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
