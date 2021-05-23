@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-o=%op5helejyy16vr-b@_&$s&i(d5w5!df+n3ull%^ilpqor9q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+ALLOWED_HOSTS = ['collegedashboard.herokuapp.com','127.0.0.1']
 
 # Application definition
 
@@ -99,7 +100,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = ['collegedashboard.herokuapp.com']
 
 
 # Internationalization
