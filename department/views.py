@@ -132,7 +132,7 @@ def depauto(request):
         "tittle":dp_name,
         "autotoppers":AutoTopper.objects.all(),
         "departments":Departments.objects.all(),
-        "notification_list":Eee_notification.objects.all(),        
+        "notification_list":Auto_notification.objects.all(),        
         'plot_div': plot_div,
         'final_s':final_strength[len(final_strength)-1],
         'thirt_s':third_strength[len(third_strength)-1],

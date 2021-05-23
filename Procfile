@@ -1,0 +1,1 @@
+web: gunicorn collegedashboard.wsgi --log-file -
