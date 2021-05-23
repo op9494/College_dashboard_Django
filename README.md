@@ -1,6 +1,8 @@
 # COLLEGE DASHBOARD USING DJANGO
 This is na web application used to deliver the online dashborad for the **student to have the official news from the college** in internet without going ofline.
 
+## TO VIEW THE LIVE APPLICATION http://collegedashboard.herokuapp.com/(http://collegedashboard.herokuapp.com/)
+
 ## INSTALLATION
 1. Install [django](https://www.djangoproject.com/download/) and then install 'pip'
 2. Use the below code to install the needed packages used in the application
